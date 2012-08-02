@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Realm of the Mad God</title>
+<style>body{text-align:center;overflow:hidden;background-color:#000;margin:0px;}</style>
+<script src="http://www.realmofthemadgod.com/js/AC_OETags.js"></script>
+<script>
+/* ----------------------------------------------------------------------------
+needs to be updated when a new version of the game comes out or when a new
+version of the kongregate chat api comes out.
+-----------------------------------------------------------------------------*/
+// http://www.realmofthemadgod.com/version.txt (load dynamically?...)
+var game_version = '1341376606'; 
+// kong api (load version dynamically?..)
+var api_path = 'http://chat.kongregate.com/flash/API_AS3_5c14b802b05ffc5f732a5f2c768a68bf.swf'; 
+
+/* ----------------------------------------------------------------------------
+one time settings. the uid and token can easily be found using the chrome dev 
+tools in chrome or firebug for firefox.
+-----------------------------------------------------------------------------*/
+// displays in the top right corner on the char select screen, set to anything you want
+var logged_in_as = 'Hello YouTube!'; 
+// your kongregate user id
+var kong_uid = '#######';
+// your kongregate auth token
+var token = '###########################################################'; 
+
+// shouldn't need to change this unless you want to change width/height/quality
+var flashvars = 'kongregate_username='+logged_in_as+'&kongregate_user_id='+kong_uid+'&kongregate_game_auth_token='+token+'&kongregate_api_path='+api_path;
+AC_FL_RunContent(
+	"src", "http://www.realmofthemadgod.com/AGCLoader"+game_version,
+	"FlashVars", flashvars,
+	"width", "800",
+	"height", "600",
+	"quality", "low",
+	"bgcolor", "#000000",
+	"allowScriptAccess", "always",
+	"wmode", "direct"
+);
+</script>
