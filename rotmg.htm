@@ -1,33 +1,33 @@
 <!doctype html>
 <meta charset=utf-8>
 <title>Realm of the Mad God</title>
-<style>body{text-align:center;overflow:hidden;background-color:#000;margin:0px;}</style>
+<style>body{text-align:center;overflow:hidden;background-color:#000;margin:0px;color:#444;font-family:sans-serif;}#options{position:absolute;bottom:0;right:0;text-align:right;cursor:pointer;margin:.5em;}a{width:1em;display:block;text-align:center;float:left;margin:3px;}a:hover{background-color:#222;}</style>
+<div id=options>
+	<a onclick="resize(640,480)">s</a>
+	<a onclick="resize(800,600)">m</a>
+	<a onclick="resize(1024,800)">l</a>
+</div>
 <script src="http://www.realmofthemadgod.com/js/AC_OETags.js"></script>
+<script src="settings.js"></script>
 <script>
-/* ----------------------------------------------------------------------------
-one time settings. the uid and token can easily be found using the chrome dev 
-tools in chrome or firebug for firefox.
------------------------------------------------------------------------------*/
-// displays in the top right corner on the char select screen, set to anything you want
-var logged_in_as = 'Hello YouTube!'; 
-// your kongregate user id
-var kong_uid = '#######';
-// your kongregate auth token
-var token = '###########################################################'; 
-
-// shouldn't need to change this unless you want to change width/height/quality
 function run() {
 	var flashvars = 'kongregate_username='+logged_in_as+'&kongregate_user_id='+kong_uid+'&kongregate_game_auth_token='+token+'&kongregate_api_path='+api_path;
 	AC_FL_RunContent(
 		"src", "http://www.realmofthemadgod.com/AGCLoader"+game_version,
 		"FlashVars", flashvars,
-		"width", "800",
-		"height", "600",
-		"quality", "low",
+		"width", gameWidth,
+		"height", gameHeight,
+		"quality", gameQuality,
 		"bgcolor", "#000000",
 		"allowScriptAccess", "always",
-		"wmode", "direct"
+		"wmode", "direct",
+		"id", "game"
 	);
+}
+function resize(w,h) {
+	var f = document.getElementById('game');
+	f.setAttribute("width", w);
+	f.setAttribute("height", h);
 }
 
 // callbacks for the queries below
