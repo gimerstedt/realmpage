@@ -11,7 +11,9 @@
 <script src="settings.js"></script>
 <script>
 function run() {
-	var flashvars = 'kongregate_username='+logged_in_as+'&kongregate_user_id='+kong_uid+'&kongregate_game_auth_token='+token+'&kongregate_api_path='+api_path;
+	if(auto_login) {
+		var flashvars = 'kongregate_username='+logged_in_as+'&kongregate_user_id='+kong_uid+'&kongregate_game_auth_token='+token+'&kongregate_api_path='+api_path;
+	}
 	AC_FL_RunContent(
 		"src", "http://www.realmofthemadgod.com/AGCLoader"+game_version,
 		"FlashVars", flashvars,

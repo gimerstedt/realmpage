@@ -3,6 +3,9 @@
 	chrome or firebug for firefox.
 -----------------------------------------------------------------------------*/
 
+// automatically log in via kongregate api? (required for setting logged_in_as)
+var auto_login = true;
+
 // displays in the top right corner on the char select screen, set to anything you want
 var logged_in_as = 'Hello YouTube!';
 // your kongregate user id
