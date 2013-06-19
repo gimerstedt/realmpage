@@ -37,7 +37,7 @@ function versioncb(res) {
 	game_version = res.query.results.body.p
 }
 function kongcb(res) {
-	api_path = res.query.results.script.match(/"kongregate_api_path":"([^"]+)"/)[1]
+	api_path = res.query.results.script.match(/"api_path":"([^"]+)"/)[1]
 	run()
 }
 </script>
